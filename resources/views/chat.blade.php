@@ -12,12 +12,9 @@
 		<div class="row" id="app">
 			<ul class="list-group offset-4 col-4">
 			  <li class="list-group-item">Chat Room</li>
-			  <li class="list-group-item">Dapibus ac facilisis in</li>
-			  <li class="list-group-item">Morbi leo risus</li>
-			  <li class="list-group-item">Porta ac consectetur ac</li>
-			  <li class="list-group-item">Vestibulum at eros</li>
+			  <message v-for="value in chat.message" :msg="value" ></message>
 			  <br>
-			  <input type="text" clas="form-control" placeholder="Type your message here">
+			  <input type="text" v-model="message" @keyup.enter="sendMsg" clas="form-control" placeholder="Type your message here">
 
 			</ul>
 		</div>

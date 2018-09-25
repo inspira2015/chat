@@ -16,7 +16,26 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('message', require('./components/Message.vue'));
+
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+    	message: '',
+    	chat: {
+    		message: []
+    	},
+    },
+    methods: {
+    	sendMsg() {
+    		if (this.message.length == 0) {
+    			return;
+    		}
+
+    		this.chat.message.push(this.message);
+    		this.message = '';
+    		console.log(this.message);
+    	}
+    }
 });
