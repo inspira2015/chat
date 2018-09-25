@@ -19,8 +19,10 @@
 			<div class="offset-4 col-4">
 				<li class="list-group-item">Chat Room</li>
 
-				<ul class="list-group">
-			  		<message v-for="value in chat.message" :msg="value" ></message>
+				<ul class="list-group" v-chat-scroll>
+			  		<message v-for="value in chat.message"
+			  		         :msg="value"
+			  		         :key="value.index"></message>
 				</ul>
 		  	<input type="text" v-model="message" @keyup.enter="sendMsg" clas="form-control offset-4 col-4" placeholder="Type your message here">
 			</div>
