@@ -1,10 +1,15 @@
 <template>
-	<li class="list-group-item">{{ msg }}</li>
+	<li class="list-group-item" :class="className">{{ msg }}</li>
 </template>
 
 <script>
 	export default {
-		props: ['msg']
+		props: ['msg', 'color'],
+		computed: {
+			className() {
+				return 'list-group-item-' + this.color;
+			}
+		}
 	}
 </script>
 

@@ -22,7 +22,8 @@
 				<ul class="list-group" v-chat-scroll>
 			  		<message v-for="value in chat.message"
 			  		         :msg="value"
-			  		         :key="value.index"></message>
+			  		         :key="value.index"
+			  		         :color="color"></message>
 				</ul>
 		  	<input type="text" v-model="message" @keyup.enter="sendMsg" clas="form-control offset-4 col-4" placeholder="Type your message here">
 			</div>
