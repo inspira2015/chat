@@ -32,6 +32,7 @@ const app = new Vue({
             user: [],
             color: []
     	},
+        typing: '',
     },
     watch: {
         message() {
@@ -74,7 +75,10 @@ const app = new Vue({
             console.log(e.user);
         })
         .listenForWhisper('typing', (e) => {
-            console.log(e.name);
+            this.typing = '';
+            if (e.name != '') {
+                this.typing = 'typing...';
+            }
         });
     },
 
