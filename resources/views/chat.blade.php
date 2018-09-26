@@ -24,7 +24,8 @@
 			  		         :msg="value"
 			  		         :key="value.index"
 			  		         :color="chat.color[index]"
-			  		         :user="chat.user[index]"></message>
+			  		         :user="chat.user[index]"
+			  		         :time="chat.time[index]"></message>
 				</ul>
 		  	<input type="text" v-model="message" @keyup.enter="sendMsg" clas="form-control offset-4 col-4" placeholder="Type your message here">
 			</div>
