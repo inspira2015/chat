@@ -1,5 +1,8 @@
 <template>
-	<li class="list-group-item" :class="className">{{ msg }}</li>
+	<div>	
+		<li class="list-group-item" :class="className">{{ msg }}</li>
+		<small class="badge float-right badge-danger">You</small>
+	</div>
 </template>
 
 <script>
