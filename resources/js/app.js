@@ -10,13 +10,18 @@ require('./bootstrap');
 window.Vue = require('vue');
 import Vue from 'vue'
 import VueChatScroll from 'vue-chat-scroll'
-Vue.use(VueChatScroll)
+Vue.use(VueChatScroll);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+import Toaster from 'v-toaster'
+import 'v-toaster/dist/v-toaster.css'
+
+Vue.use(Toaster, {timeout: 5000});
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('message', require('./components/Message.vue'));
@@ -96,10 +101,13 @@ const app = new Vue({
          })
             .joining((user) => {
                 this.numberOfUsers += 1;
+                this.$toaster.success(user.name + ' is joined the room');
+
                 //console.log(user.name);
         })
             .leaving((user) => {
                 this.numberOfUsers -= 1;
+                this.$toaster.warning(user.name + ' has leaved the room');
                 //console.log(user.name);
         });
     },
