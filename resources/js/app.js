@@ -88,5 +88,15 @@ const app = new Vue({
                 this.typing = 'typing...';
             }
         });
+        Echo.join(`chat`)
+            .here((users) => {
+             console.log(users);
+         })
+            .joining((user) => {
+                //console.log(user.name);
+        })
+            .leaving((user) => {
+                //console.log(user.name);
+        });
     },
 });
