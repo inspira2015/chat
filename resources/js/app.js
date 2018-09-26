@@ -33,6 +33,14 @@ const app = new Vue({
             color: []
     	},
     },
+    watch: {
+        message() {
+            Echo.private('chat')
+                .whisper('typing', {
+                    name: this.message
+            });
+        }
+    },
     methods: {
     	sendMsg() {
     		if (this.message.length == 0) {
@@ -64,6 +72,9 @@ const app = new Vue({
                 this.chat.user.push(e.user.name);
                 this.chat.color.push('warning')
             console.log(e.user);
+        })
+        .listenForWhisper('typing', (e) => {
+            console.log(e.name);
         });
     },
 
