@@ -29,7 +29,8 @@ const app = new Vue({
     	color: 'warning',
     	chat: {
     		message: [],
-            user: []
+            user: [],
+            color: []
     	},
     },
     methods: {
@@ -39,7 +40,8 @@ const app = new Vue({
     		}
 
     		this.chat.message.push(this.message);
-            this.chat.user.push('You')
+            this.chat.user.push('You');
+            this.chat.color.push('success');
 
             axios.post('/send', {
                 message: this.message,
@@ -59,7 +61,8 @@ const app = new Vue({
         Echo.private('chat')
             .listen('ChatEvent', (e) => {
                 this.chat.message.push(e.message);
-                this.chat.user.push(e.user.name)
+                this.chat.user.push(e.user.name);
+                this.chat.color.push('warning')
             console.log(e.user);
         });
     },
