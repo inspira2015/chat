@@ -27,7 +27,9 @@
 			  		         :user="chat.user[index]"
 			  		         :time="chat.time[index]"></message>
 				</ul>
-		  	<input type="text" v-model="message" @keyup.enter="sendMsg" clas="form-control offset-4 col-4" placeholder="Type your message here">
+		  		<input type="text" v-model="message" @keyup.enter="sendMsg" clas="form-control" placeholder="Type your message here">
+		  		<br><br>
+		  		<span class="btn btn-sm btn-warning" @click="deleteSession">Delete chats</span>
 			</div>
 		</div>
 	</div>

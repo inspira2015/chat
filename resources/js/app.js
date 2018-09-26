@@ -91,6 +91,14 @@ const app = new Vue({
                 console.log(error);
             });
         },
+        deleteSession() {
+            axios.post('/deleteSession')
+
+            .then(response => {
+                this.$toaster.success('Session Messages deleted');
+                console.log(response);
+            });
+        }
     },
     mounted() {
         this.getOldMessages();
